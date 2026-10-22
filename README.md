@@ -24,13 +24,6 @@ Portfolio personnel présentant mon parcours, mes compétences, mes projets et m
 - JavaScript (ES6+)
 - Python (serveur HTTP de déploiement sur Scalingo uniquement ; le site n’a pas de logique applicative Python)
 
-## Projets présentés
-
-- Jeu de rôle au tour par tour en Go.
-- Puissance 4 réalisé avec Go, HTML et CSS.
-- Jeu FPS en C#.
-- Bibliothèque de films avec JavaScript, HTML, CSS, React et TypeScript.
-- Application de gestion de frigo intelligent avec Python et FastAPI.
 
 ## Lancer le site en local
 
