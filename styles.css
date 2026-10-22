@@ -1,0 +1,652 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* =====================================================
+   1. THÈME (variables) — sombre par défaut, clair via body.light-mode
+   ===================================================== */
+:root {
+    --bg: #0e1020;
+    --surface: #161a30;
+    --surface-2: #1e2342;
+    --border: #2b3259;
+    --text: #e8eaf6;
+    --muted: #9aa2c4;
+    --primary: #6aa5ff;
+    --primary-hover: #8dbaff;
+    --on-primary: #0a1226;
+    --accent: #ffc83d;
+    --accent-text: #ffd466;
+    --on-accent: #1a1405;
+    --win: #2f9e5b;
+    --header-bg: rgba(14, 16, 32, 0.85);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-title: 'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+    --radius: 14px;
+    color-scheme: dark;
+}
+
+body.light-mode {
+    --bg: #f4f5fb;
+    --surface: #ffffff;
+    --surface-2: #eef1fa;
+    --border: #d9deef;
+    --text: #1b2033;
+    --muted: #565e7f;
+    --primary: #1d5bd6;
+    --primary-hover: #1749ad;
+    --on-primary: #ffffff;
+    --accent: #f2b705;
+    --accent-text: #8a5a00;
+    --on-accent: #1a1405;
+    --win: #3aa66a;
+    --header-bg: rgba(255, 255, 255, 0.88);
+    --shadow: 0 8px 24px rgba(30, 40, 90, 0.1);
+    color-scheme: light;
+}
+
+/* =====================================================
+   2. BASE
+   ===================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    background: var(--bg);
+    color: var(--text);
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.75em;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.container {
+    width: min(1120px, 100% - 2rem);
+    margin-inline: auto;
+    padding-block: clamp(1.5rem, 4vw, 3rem);
+    flex: 1;
+}
+
+/* Carte commune à toutes les sections principales */
+.cv,
+.skills-projects,
+.contact,
+.game-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* =====================================================
+   3. EN-TÊTE ET NAVIGATION
+   ===================================================== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--header-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    width: min(1120px, 100% - 2rem);
+    margin-inline: auto;
+    padding-block: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+nav .logo {
+    margin: 0 auto 0 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.25rem;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    color: var(--muted);
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+nav ul li a:hover {
+    color: var(--text);
+    background: var(--surface-2);
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    background: var(--primary);
+    color: var(--on-primary);
+    font-weight: 700;
+}
+
+#theme-switcher,
+#lang-switcher {
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+#theme-switcher:hover,
+#lang-switcher:hover {
+    border-color: var(--primary);
+}
+
+/* =====================================================
+   4. PAGE CV
+   ===================================================== */
+.cv {
+    display: grid;
+    grid-template-columns: minmax(230px, 300px) 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+}
+
+.profile {
+    text-align: center;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem 1.25rem;
+}
+
+.profile h2 {
+    margin-bottom: 0.25rem;
+}
+
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 4px solid var(--accent);
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
+.visit-counter-style {
+    margin: 0.5rem 0 0;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.bio > h3:first-child {
+    margin-top: 0;
+}
+
+.bio p {
+    max-width: 68ch;
+}
+
+/* Compétences */
+.skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skills li {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
+/* Expériences / Formation */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.timeline li {
+    position: relative;
+    padding: 1rem 1.1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+}
+
+.timeline li:is(.exp-merck, .exp-euro-info, .form-IUT, .form-bachelor) {
+    padding-left: 5rem;
+    min-height: 4.5rem;
+}
+
+.timeline li:is(.exp-merck, .exp-euro-info, .form-IUT, .form-bachelor)::after {
+    content: "";
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    width: 46px;
+    height: 46px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: #fff;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 3px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--border);
+}
+
+.exp-euro-info::after { background-image: url('images/euroinfo_logo.png'); }
+.exp-merck::after     { background-image: url('images/merck_logo.png'); }
+.form-IUT::after      { background-image: url('images/iut_logo.png'); }
+.form-bachelor::after { background-image: url('images/ynov_logo.png'); }
+
+.timeline li strong {
+    font-weight: 700;
+}
+
+.timeline li p.details-merck {
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+/* =====================================================
+   5. PAGE PROJETS
+   ===================================================== */
+.skills-grid {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skills-grid li {
+    padding: 0.4rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.skills-grid li:hover {
+    border-color: var(--primary);
+}
+
+.skills-grid li.active-filter {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+    font-weight: 700;
+}
+
+/* Carrousel (le JS gère position / opacity en inline) */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.carousel-container {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    padding: 4px;
+}
+
+.project {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 780px;
+    margin-inline: auto;
+    padding: clamp(1rem, 3vw, 1.75rem);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: opacity 0.3s ease;
+}
+
+.project h3 {
+    margin-top: 0;
+    color: var(--accent-text);
+}
+
+.project p {
+    margin-bottom: 0.6em;
+}
+
+.project-img {
+    display: block;
+    width: 100%;
+    max-height: 340px;
+    object-fit: contain;
+    margin: 1.25rem auto 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.carousel-control {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.carousel-control:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--on-primary);
+}
+
+#no-project-message {
+    margin: 1rem 0;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--muted);
+    background: var(--surface-2);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+}
+
+/* =====================================================
+   6. PAGE CONTACT
+   ===================================================== */
+.contact-info {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    overflow-wrap: anywhere;
+}
+
+.contact-info h3 {
+    margin-top: 0;
+}
+
+.contact-info p {
+    margin-bottom: 0.6em;
+}
+
+#contact-form {
+    display: grid;
+    gap: 1rem;
+    max-width: 680px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+#contact-form label {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+#contact-form button[type="submit"] {
+    justify-self: start;
+    padding: 0.8rem 1.5rem;
+    font: inherit;
+    font-weight: 700;
+    color: var(--on-primary);
+    background: var(--primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+#contact-form button[type="submit"]:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   7. PIED DE PAGE
+   ===================================================== */
+footer {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+}
+
+/* =====================================================
+   8. RESPONSIVE
+   ===================================================== */
+@media (max-width: 860px) {
+    .cv {
+        grid-template-columns: 1fr;
+    }
+
+    .profile {
+        max-width: 420px;
+        width: 100%;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 760px) {
+    nav {
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+    }
+
+    /* Les liens passent sur une 2e ligne, défilables si besoin */
+    nav ul {
+        order: 3;
+        flex: 1 1 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+    }
+
+    nav ul::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: calc(100% - 1.25rem);
+    }
+
+    nav {
+        width: calc(100% - 1.25rem);
+    }
+
+    nav .logo {
+        font-size: 1.15rem;
+    }
+
+    #theme-switcher,
+    #lang-switcher {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.82rem;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .timeline li:is(.exp-merck, .exp-euro-info, .form-IUT, .form-bachelor) {
+        padding-left: 4.2rem;
+    }
+
+    .timeline li:is(.exp-merck, .exp-euro-info, .form-IUT, .form-bachelor)::after {
+        width: 38px;
+        height: 38px;
+        left: 0.7rem;
+    }
+
+    /* Carrousel : les flèches passent sous la carte */
+    .carousel-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .carousel-container {
+        order: -1;
+        flex: 1 1 100%;
+    }
+
+    .project-img {
+        max-height: 220px;
+    }
+
+    #contact-form button[type="submit"] {
+        justify-self: stretch;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

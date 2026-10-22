@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title_projects">Langages & Projets - Théo Luthin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">Théo Luthin</h1>
+            <ul>
+                <li><a href="index.html" data-i18n="nav_cv">CV</a></li>
+                <li><a href="projets.html" class="active" data-i18n="nav_projects">Projets</a></li>
+                <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <button id="lang-switcher" type="button">🌐 English</button>
+            <button id="theme-switcher" type="button">☀️ Mode Clair</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="skills-projects">
+            <h2 data-i18n="langs_h">Langages de programmation étudiés</h2>
+
+            <ul class="skills-grid" id="skills-filter">
+                <li data-filter="all" class="active-filter" data-i18n="filter_all">TOUS</li>
+                <li data-filter="html">HTML</li>
+                <li data-filter="css">CSS</li>
+                <li data-filter="javascript">JavaScript</li>
+                <li data-filter="java">Java</li>
+                <li data-filter="python">Python</li>
+                <li data-filter="go">Go</li>
+                <li data-filter="sql">SQL</li>
+                <li data-filter="c">C</li>
+                <li data-filter="csharp">C#</li>
+            </ul>
+
+            <h2 data-i18n="projects_h">Projets réalisés</h2>
+            <div id="no-project-message" style="display: none;"></div>
+            <div class="carousel-wrapper">
+                <button class="carousel-control prev-btn" data-target="projects-carousel" type="button" aria-label="Précédent">◀</button>
+
+                <div class="carousel-container projects-carousel" id="projects-carousel">
+
+                    <article class="project" data-tags="go,poo">
+                        <h3 data-i18n="proj_go_title">Jeu en Go</h3>
+                        <p data-i18n="proj_go_desc">RPG au tour par tour développé en Go avec gestion de personnages, inventaire et combats.</p>
+                        <p><strong data-i18n="proj_tech">Technologies :</strong> Go</p>
+                        <p><strong data-i18n="proj_link">Lien du git du projet :</strong> <a href="https://gitlab.com/education5890737/projet-red_fantasy_rpg" target="_blank" rel="noopener">https://gitlab.com/education5890737/projet-red_fantasy_rpg</a></p>
+                        <img src="images/go.png" alt="Capture d'écran du jeu en Go" data-i18n-alt="proj_go_alt" class="project-img">
+                    </article>
+
+                    <article class="project" data-tags="go,html,css">
+                        <h3 data-i18n="proj_p4_title">Puissance 4 en Go-HTML-CSS</h3>
+                        <p data-i18n="proj_p4_desc">Implémentation web du jeu de Puissance 4.</p>
+                        <p><strong data-i18n="proj_tech">Technologies :</strong> Go, HTML, CSS</p>
+                        <p><strong data-i18n="proj_link">Lien du git du projet :</strong> <a href="https://gitlab.com/education5890737/power4-web" target="_blank" rel="noopener">https://gitlab.com/education5890737/power4-web</a></p>
+                        <img src="images/power4web.png" alt="Capture d'écran du puissance 4 en Go" data-i18n-alt="proj_p4_alt" class="project-img">
+                    </article>
+
+                </div>
+
+                <button class="carousel-control next-btn" data-target="projects-carousel" type="button" aria-label="Suivant">▶</button>
+            </div>
+        </section>
+    </main>
+
+    <footer data-i18n="footer">
+        © 2025 Théo Luthin — Tous droits réservés
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
