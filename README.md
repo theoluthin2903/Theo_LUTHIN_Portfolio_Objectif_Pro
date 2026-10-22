@@ -1,30 +1,66 @@
-# 🧑‍💻 Portfolio de Théo Luthin
+# Portfolio de Théo Luthin
 
-Ceci est le code source de mon portfolio personnel, un CV interactif et responsive mettant en avant mes compétences en développement web et mes projets personnels.
+Portfolio personnel présentant mon parcours, mes compétences, mes projets et mes coordonnées. Le site est un site statique réalisé en HTML, CSS et JavaScript, sans framework ni dépendance à installer.
 
-## 🚀 Fonctionnalités Clés
+## Pages
 
-* **CV Détaillé :** Présentation de mon parcours académique et professionnel.
-* **Gestion de Thème :** Bascule entre les modes **Clair** (Light Mode) et **Sombre** (Dark Mode) avec persistance du choix via `localStorage`.
-* **Carrousel de Projets Filtrable :** Les projets sont présentés dans un carrousel dynamique et peuvent être filtrés par technologie (HTML, Go, Python, etc.).
-* **Design Réactif (Responsive) :** Optimisé pour l'affichage sur mobile, tablette et bureau (grâce aux Media Queries).
-* **Design Thématique :** Utilisation d'un thème visuel **Néon/HUD** dans le mode sombre pour une esthétique moderne et technique.
+- **CV** (`index.html`) : profil, compétences, expériences et formation.
+- **Projets** (`projets.html`) : projets présentés dans un carrousel et filtrables par technologie.
+- **Contact** (`contact.html`) : formulaire ouvrant le client de messagerie par défaut, ainsi que mes coordonnées.
 
-## 🛠️ Technologies Utilisées
+## Fonctionnalités
 
-* **HTML5** (Structure sémantique des pages)
-* **CSS3** (Stylisation, Flexbox, Grid, Media Queries)
-* **JavaScript (ES6+)** (Logique du thème, Carrousel, **Logique du jeu Morpion**)
+- Thèmes sombre (noir et jaune) et clair (noir et blanc), avec préférence enregistrée dans le navigateur.
+- Interface disponible en français et en anglais ; les traductions des textes fixes sont définies directement dans le HTML.
+- Carrousel de projets avec commandes de navigation et prise en charge du balayage tactile.
+- Filtrage des projets par technologie.
+- Compteurs de visites stockés dans le navigateur.
+- Mise en page responsive pour mobile, tablette et ordinateur.
 
-## 📂 Structure du Répertoire
+## Technologies
 
-| Fichier/Dossier | Description |
-| :--- | :--- |
-| `index.html` | Page principale - Contient le CV détaillé. |
-| `projets.html` | Page des Projets - Liste des langages, carrousel de projets. |
-| `contact.html` | Page de Contact - Informations de contact. |
-| `style.css` | **Styles CSS** - Contient tous les styles des deux thèmes (Dark/Light Mode) et la mise en page. |
-| `script.js` | **Logique JavaScript** - Gère le changement de thème, le carrousel de projets. |
-| `images/` | Dossier contenant les logos et les captures d'écran des projets. |
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Python (serveur HTTP de déploiement sur Scalingo uniquement ; le site n’a pas de logique applicative Python)
 
----
+## Projets présentés
+
+- Jeu de rôle au tour par tour en Go.
+- Puissance 4 réalisé avec Go, HTML et CSS.
+- Jeu FPS en C#.
+- Bibliothèque de films avec JavaScript, HTML, CSS, React et TypeScript.
+- Application de gestion de frigo intelligent avec Python et FastAPI.
+
+## Lancer le site en local
+
+Aucune dépendance n’est nécessaire. Depuis la racine du dépôt, démarrez un serveur HTTP statique avec Python :
+
+```bash
+python -m http.server 8000
+```
+
+Puis ouvrez <http://localhost:8000>.
+
+## Déploiement sur Scalingo
+
+Le `Procfile` démarre le serveur HTTP standard de Python sur le port fourni par Scalingo. Le fichier `requirements.txt` permet au buildpack Python de détecter l’application ; aucune dépendance Python tierce n’est requise.
+
+```text
+web: python -m http.server $PORT --bind 0.0.0.0
+```
+
+lien de l'app déployée sur scalingo : [https://theo-luthin-portfolio-objectif-pro.scalingo.io/](https://theo-luthin-portfolio-objectif-pro.scalingo.io/)
+
+## Structure du dépôt
+
+| Fichier ou dossier | Rôle |
+| --- | --- |
+| `index.html` | Page du CV |
+| `projets.html` | Page des projets et filtres |
+| `contact.html` | Page de contact |
+| `style.css` | Styles, thèmes et mise en page responsive |
+| `script.js` | Changement de langue et de thème, compteurs, carrousel, filtres et formulaire de contact |
+| `images/` | Photos, logos, captures de projets et drapeaux SVG |
+| `Procfile` | Commande de démarrage web sur Scalingo |
+| `requirements.txt` | Manifeste vide de dépendances tierces pour la détection Python sur Scalingo |
