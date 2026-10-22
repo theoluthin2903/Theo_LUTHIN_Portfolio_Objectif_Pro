@@ -2,83 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // =======================================================
     // --- 0. TRADUCTION FR / EN ---
-    // Le français est lu directement dans le HTML (attributs data-i18n),
-    // l'anglais vient du dictionnaire EN ci-dessous.
+    // Les traductions des textes fixes sont stockées dans leurs attributs HTML.
     // =======================================================
 
-    const EN = {
-        // Navigation & pied de page (communs à toutes les pages)
-        nav_cv: 'Resume',
-        nav_projects: 'Projects',
-        nav_contact: 'Contact',
-        nav_morpion: 'Tic-Tac-Toe',
-        footer: '© 2025 Théo Luthin — All rights reserved',
-
-        // Titres d'onglet
-        title_index: 'Théo Luthin - Portfolio',
-        title_projects: 'Languages & Projects - Théo Luthin',
-        title_contact: 'Contact - Théo Luthin',
-
-        // Page CV
-        subtitle: 'Computer Science Student',
-        about_h: 'About',
-        about_p: 'Passionate about video games and computing in general, I am currently a computer science student. I am looking to develop my programming and web development skills in order to contribute to innovative projects.',
-        skills_h: 'Main skills',
-        skill_1: 'Back-End programming (Java, Python, C#, SQL)',
-        skill_2: 'Project management and teamwork',
-        skill_3: 'English',
-        exp_h: 'Experience',
-        exp_merck_date: 'February 8–12, 2021:',
-        exp_merck_title: 'Work-experience placement (final year of middle school) at Merck, a leading life-science laboratory.',
-        exp_merck_details: "This placement let me discover the different paths available for my further studies. As my mother works as an IT project manager at the company, I spent most of the placement in her department to learn about her job, which really made me want to continue my higher education in this field.",
-        exp_euro_date: 'July 1–31, 2025:',
-        exp_euro_title: 'Summer job at Euro-Information Logistique',
-        form_h: 'Education',
-        form_bac_date: '2021 - 2024:',
-        form_bac_title: 'Technological Baccalaureate, Lycée Pasteur, Strasbourg (Honours – "Assez Bien")',
-        form_iut_date: '2024 - 2025:',
-        form_iut_title: 'Computer Science student, IUT d\'Illkirch',
-        form_ynov_date: 'Since September 2025:',
-        form_ynov_title: 'Computer Science Bachelor, Ynov Campus Strasbourg',
-        photo_alt: 'Profile picture of Théo Luthin',
-
-        // Page Projets
-        langs_h: 'Programming languages studied',
-        filter_all: 'ALL',
-        projects_h: 'Completed projects',
-        proj_tech: 'Technologies:',
-        proj_link: 'Project Git link:',
-        proj_go_title: 'Go Game',
-        proj_go_desc: 'Turn-based RPG developed in Go with character management, inventory and combat.',
-        proj_go_alt: 'Screenshot of the Go game',
-        proj_p4_title: 'Connect 4 in Go-HTML-CSS',
-        proj_p4_desc: 'Web implementation of the Connect 4 game.',
-        proj_p4_alt: 'Screenshot of the Connect 4 game in Go',
-
-        // Page Contact
-        contact_h: '📧 Send me an email',
-        label_name: 'Full name:',
-        ph_name: 'Your full name',
-        label_email: 'Email address:',
-        ph_email: 'your.email@example.com',
-        label_subject: 'Subject:',
-        ph_subject: 'Internship request, collaboration, etc.',
-        label_body: 'Message:',
-        ph_body: 'Type your message here...',
-        btn_send: 'Send (opens your mail client)',
-        direct_h: 'Direct contact',
-        c_linkedin: 'My LinkedIn account:',
-        c_fallback: "If the form doesn't work, you can contact me directly:",
-        c_email: 'Email:',
-        c_phone: 'Phone:'
-    };
-
-    // Textes générés par le JS (compteurs, boutons, morpion, mail...)
+    // Textes générés par le JS (compteurs, boutons, mail...)
     const UI = {
         fr: {
             toLight: '☀️ Mode Clair',
             toDark: '🌙 Mode Sombre',
-            langBtn: '🌐 English',
+            langBtn: 'English',
             langLabel: "Traduire le site en anglais",
             totalVisits: (n) => `Total de visites du site : ${n}`,
             sessionVisits: (n) => `Visites de session : ${n}`,
@@ -101,20 +33,14 @@ Cordialement,
 ${name}
 (Envoyé depuis le formulaire de contact de votre portfolio)
 `,
-            // Morpion
-            m_start: "Début du jeu. C'est à vous, Théo !",
-            m_yourTurn: 'À vous de jouer, Théo !',
-            m_ai: (s) => `L'ordinateur (${s}) réfléchit...`,
-            m_win: (who) => `${who === 'human' ? 'Théo' : "L'ordinateur"} a <span class="win-word">Gagné</span> !`,
-            m_draw: 'Égalité !'
         },
         en: {
             toLight: '☀️ Light mode',
             toDark: '🌙 Dark mode',
-            langBtn: '🌐 Français',
+            langBtn: 'Français',
             langLabel: 'Traduire le site en français',
-            totalVisits: (n) => `Total site visits: ${n}`,
-            sessionVisits: (n) => `Session visits: ${n}`,
+            totalVisits: (n) => `Total site visits : ${n}`,
+            sessionVisits: (n) => `Session visits : ${n}`,
             noProject: 'No project for this language yet.',
             mailDefaultSubject: 'Contact via Portfolio',
             mailUnknown: 'Not specified',
@@ -133,13 +59,7 @@ ${body}
 Best regards,
 ${name}
 (Sent from the contact form of your portfolio)
-`,
-            // Morpion
-            m_start: "Game start. Your turn, Théo!",
-            m_yourTurn: 'Your turn, Théo!',
-            m_ai: (s) => `The computer (${s}) is thinking...`,
-            m_win: (who) => `${who === 'human' ? 'Théo' : 'The computer'} <span class="win-word">won</span>!`,
-            m_draw: "It's a draw!"
+`
         }
     };
 
@@ -153,27 +73,9 @@ ${name}
     let totalVisitCount = 0;
     let sessionVisitCount = 0;
     let noProjectVisible = false;
-    let morpionStatus = null;   // { key, args }
-    let statusMessageEl = null;
-
-    // Marque automatiquement la navigation et le pied de page (utile pour les pages
-    // que je n'ai pas modifiées, comme morpion.html)
-    [
-        ['nav a[href="index.html"]', 'nav_cv'],
-        ['nav a[href="projets.html"]', 'nav_projects'],
-        ['nav a[href="contact.html"]', 'nav_contact'],
-        ['nav a[href="morpion.html"]', 'nav_morpion'],
-        ['footer', 'footer']
-    ].forEach(([selector, key]) => {
-        document.querySelectorAll(selector).forEach(el => {
-            if (!el.hasAttribute('data-i18n')) el.setAttribute('data-i18n', key);
-        });
-    });
-
-    // Mémorise le texte français d'origine
-    document.querySelectorAll('[data-i18n]').forEach(el => { el.dataset.fr = el.textContent; });
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.dataset.frPlaceholder = el.getAttribute('placeholder') || ''; });
-    document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.dataset.frAlt = el.getAttribute('alt') || ''; });
+    document.querySelectorAll('[data-en]').forEach(el => { el.dataset.fr = el.textContent; });
+    document.querySelectorAll('[data-en-placeholder]').forEach(el => { el.dataset.frPlaceholder = el.getAttribute('placeholder') || ''; });
+    document.querySelectorAll('[data-en-alt]').forEach(el => { el.dataset.frAlt = el.getAttribute('alt') || ''; });
 
     // Crée le bouton de langue s'il n'existe pas dans la page
     const themeSwitcher = document.getElementById('theme-switcher');
@@ -190,27 +92,28 @@ ${name}
         localStorage.setItem('lang', lang);
         document.documentElement.lang = lang;
 
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const translated = EN[el.dataset.i18n];
-            el.textContent = (lang === 'en' && translated !== undefined) ? translated : el.dataset.fr;
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.textContent = lang === 'en' ? el.dataset.en : el.dataset.fr;
         });
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-            const translated = EN[el.getAttribute('data-i18n-placeholder')];
-            el.setAttribute('placeholder', (lang === 'en' && translated !== undefined) ? translated : el.dataset.frPlaceholder);
+        document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+            el.setAttribute('placeholder', lang === 'en' ? el.dataset.enPlaceholder : el.dataset.frPlaceholder);
         });
-        document.querySelectorAll('[data-i18n-alt]').forEach(el => {
-            const translated = EN[el.getAttribute('data-i18n-alt')];
-            el.setAttribute('alt', (lang === 'en' && translated !== undefined) ? translated : el.dataset.frAlt);
+        document.querySelectorAll('[data-en-alt]').forEach(el => {
+            el.setAttribute('alt', lang === 'en' ? el.dataset.enAlt : el.dataset.frAlt);
         });
 
         updateThemeButton();
         if (langSwitcher) {
-            langSwitcher.textContent = t('langBtn');
+            const flag = document.createElement('img');
+            flag.className = 'language-flag';
+            flag.src = lang === 'fr' ? 'images/flag-gb.svg' : 'images/flag-fr.svg';
+            flag.alt = '';
+            flag.setAttribute('aria-hidden', 'true');
+            langSwitcher.replaceChildren(flag, document.createTextNode(` ${t('langBtn')}`));
             langSwitcher.setAttribute('aria-label', t('langLabel'));
         }
         renderCounters();
         renderNoProjectMessage();
-        renderMorpionStatus();
     }
 
     if (langSwitcher) {
@@ -384,7 +287,9 @@ ${name}
                 target.classList.add('active-filter');
 
                 projectItems.forEach(project => {
-                    const tags = (project.getAttribute('data-tags') || '').split(',');
+                    const tags = (project.getAttribute('data-tags') || '')
+                        .split(',')
+                        .map(tag => tag.trim());
                     const match = selectedFilter === 'all' || tags.includes(selectedFilter);
                     project.style.display = match ? 'block' : 'none';
                 });
@@ -397,8 +302,6 @@ ${name}
             }
         });
     }
-
-
     // =======================================================
     // --- INITIALISATION DE LA LANGUE (en dernier) ---
     // =======================================================

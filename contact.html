@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title_contact">Contact - Théo Luthin</title>
+    <title data-en="Contact - Théo Luthin">Contact - Théo Luthin</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,57 +13,58 @@
         <nav>
             <h1 class="logo">Théo Luthin</h1>
             <ul>
-                <li><a href="index.html" data-i18n="nav_cv">CV</a></li>
-                <li><a href="projets.html" data-i18n="nav_projects">Projets</a></li>
-                <li><a href="contact.html" class="active" data-i18n="nav_contact">Contact</a></li>
+                <li><a href="index.html" data-en="Resume">CV</a></li>
+                <li><a href="projets.html" data-en="Projects">Projets</a></li>
+                <li><a href="contact.html" class="active" data-en="Contact">Contact</a></li>
             </ul>
-            <button id="lang-switcher" type="button">🌐 English</button>
+            <button id="lang-switcher" type="button"><img class="language-flag" src="images/flag-gb.svg" alt="" aria-hidden="true"> English</button>
             <button id="theme-switcher" type="button">☀️ Mode Clair</button>
         </nav>
     </header>
 
     <main class="container">
         <section class="contact">
-            <h2 data-i18n="contact_h">📧 M'envoyer un e-mail</h2>
+            <h2 data-en="📧 Send me an email">📧 M'envoyer un e-mail</h2>
 
             <form id="contact-form">
 
                 <div class="form-group">
-                    <label for="name" data-i18n="label_name">Nom et Prénom :</label>
-                    <input type="text" id="name" name="name" required placeholder="Votre nom et prénom" data-i18n-placeholder="ph_name">
+                    <label for="name" data-en="Full name:">Nom et Prénom :</label>
+                    <input type="text" id="name" name="name" required placeholder="Votre nom et prénom" data-en-placeholder="Your full name">
                 </div>
 
                 <div class="form-group">
-                    <label for="email" data-i18n="label_email">Adresse E-mail :</label>
-                    <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com" data-i18n-placeholder="ph_email">
+                    <label for="email" data-en="Email address:">Adresse E-mail :</label>
+                    <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com" data-en-placeholder="your.email@example.com">
                 </div>
 
                 <div class="form-group">
-                    <label for="subject" data-i18n="label_subject">Objet du Message :</label>
-                    <input type="text" id="subject" name="subject" required placeholder="Demande de stage, collaboration, etc." data-i18n-placeholder="ph_subject">
+                    <label for="subject" data-en="Subject:">Objet du Message :</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Demande de stage, collaboration, etc." data-en-placeholder="Internship request, collaboration, etc.">
                 </div>
 
                 <div class="form-group">
-                    <label for="body" data-i18n="label_body">Message :</label>
-                    <textarea id="body" name="body" rows="6" required placeholder="Tapez votre message ici..." data-i18n-placeholder="ph_body"></textarea>
+                    <label for="body" data-en="Message:">Message :</label>
+                    <textarea id="body" name="body" rows="6" required placeholder="Tapez votre message ici..." data-en-placeholder="Type your message here..."></textarea>
                 </div>
 
-                <button type="submit" data-i18n="btn_send">Envoyer (Ouvrir Client Mail)</button>
+                <button type="submit" data-en="Send (opens your mail client)">Envoyer (Ouvrir Client Mail)</button>
             </form>
 
             <div class="contact-info">
-                <h3 data-i18n="direct_h">Contact Direct</h3>
-                <p><strong data-i18n="c_linkedin">Mon compte LinkedIn :</strong> <a href="https://www.linkedin.com/in/théo-luthin-71b533383/" target="_blank" rel="noopener">https://www.linkedin.com/in/théo-luthin-71b533383/</a></p>
-                <p data-i18n="c_fallback">Si le formulaire ne fonctionne pas, vous pouvez me contacter directement :</p>
-                <p><strong data-i18n="c_email">Email :</strong> <a href="mailto:theo.luthin2903@gmail.com">theo.luthin2903@gmail.com</a></p>
-                <p><strong data-i18n="c_phone">Téléphone :</strong> +33 7 84 93 29 03</p>
+                <h3 data-en="Direct contact">Contact Direct</h3>
+                <p><strong data-en="My LinkedIn account:">Mon compte LinkedIn :</strong> <a href="https://www.linkedin.com/in/théo-luthin-71b533383/" target="_blank" rel="noopener">https://www.linkedin.com/in/théo-luthin-71b533383/</a></p>
+                <p data-en="If the form doesn't work, you can contact me directly:">Si le formulaire ne fonctionne pas, vous pouvez me contacter directement :</p>
+                <p><strong data-en="Email:">Email :</strong> <a href="mailto:theo.luthin2903@gmail.com">theo.luthin2903@gmail.com</a></p>
+                 <p><strong data-en="Professional email:">Email professionnel :</strong> <a href="mailto:theo.luthin@ynov.com">theo.luthin@ynov.com</a></p>
+                <p><strong data-en="Phone:">Téléphone :</strong> +33 7 84 93 29 03</p>
             </div>
 
         </section>
     </main>
 
-    <footer data-i18n="footer">
-        © 2025 Théo Luthin — Tous droits réservés
+    <footer data-en="© 2026 Théo Luthin — All rights reserved">
+        © 2026 Théo Luthin — Tous droits réservés
     </footer>
     <script src="script.js"></script>
 </body>

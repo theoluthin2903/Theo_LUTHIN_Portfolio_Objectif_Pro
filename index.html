@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title_index">Théo Luthin - Portfolio</title>
+    <title data-en="Théo Luthin - Portfolio">Théo Luthin - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,11 +13,11 @@
         <nav>
             <h1 class="logo">Théo Luthin</h1>
             <ul>
-                <li><a href="index.html" class="active" data-i18n="nav_cv">CV</a></li>
-                <li><a href="projets.html" data-i18n="nav_projects">Projets</a></li>
-                <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                <li><a href="index.html" class="active" data-en="Resume">CV</a></li>
+                <li><a href="projets.html" data-en="Projects">Projets</a></li>
+                <li><a href="contact.html" data-en="Contact">Contact</a></li>
             </ul>
-            <button id="lang-switcher" type="button">🌐 English</button>
+            <button id="lang-switcher" type="button"><img class="language-flag" src="images/flag-gb.svg" alt="" aria-hidden="true"> English</button>
             <button id="theme-switcher" type="button">☀️ Mode Clair</button>
         </nav>
     </header>
@@ -25,58 +25,59 @@
     <main class="container">
         <section class="cv">
             <div class="profile">
-                <img src="images/photo.jpg" alt="Photo de profil de Théo Luthin" data-i18n-alt="photo_alt" class="profile-pic">
+                <img src="images/photo2.jpg" alt="Photo de profil de Théo Luthin" data-en-alt="Profile picture of Théo Luthin" class="profile-pic">
                 <h2>Théo Luthin</h2>
-                <p class="subtitle" data-i18n="subtitle">Etudiant en Informatique</p>
+                <p class="subtitle" data-en="Computer Science Student">Etudiant en Informatique</p>
                 <p id="totalVisitsDisplay" class="visit-counter-style">Total de visites du site : 0</p>
                 <p id="counterDisplay" class="visit-counter-style">Visites de session : 0</p>
             </div>
 
             <div class="bio">
-                <h3 data-i18n="about_h">À propos</h3>
-                <p data-i18n="about_p">Passionné par les jeux vidéo et l'informatique en général, je suis actuellement étudiant en informatique. Je cherche à développer mes compétences en programmation et en développement web afin de contribuer à des projets innovants.</p>
+                <h3 data-en="About">À propos</h3>
+                <p data-en="Passionate about video games and computing in general, I am currently a computer science student. I am looking to develop my programming and web development skills in order to contribute to innovative projects.">Passionné par les jeux vidéo et l'informatique en général, je suis actuellement étudiant en informatique. Je cherche à développer mes compétences en programmation et en développement web afin de contribuer à des projets innovants.</p>
 
-                <h3 data-i18n="skills_h">Compétences principales</h3>
+                <h3 data-en="Main skills">Compétences principales</h3>
                 <ul class="skills">
-                    <li data-i18n="skill_1">Programmation Back-End (Java, Python, C#, SQL)</li>
-                    <li data-i18n="skill_2">Gestion de projets et travail en équipe</li>
-                    <li data-i18n="skill_3">Anglais</li>
+                    <li data-en="Back-End programming (Java, Python, C#, SQL)">Programmation Back-End (Java, Python, C#, SQL)</li>
+                    <li data-en="Project management and teamwork">Gestion de projets et travail en équipe</li>
+                    <li data-en="English">Anglais</li>
                 </ul>
 
-                <h3 data-i18n="exp_h">Expériences</h3>
+                <h3 data-en="Experience">Expériences</h3>
                 <ul class="timeline">
                     <li class="exp-merck">
-                        <strong data-i18n="exp_merck_date">8-12 Février 2021 :</strong>
-                        <span data-i18n="exp_merck_title">Stage de 3ème réalisé chez Merck, laboratoire scientifique leader en sciences de la vie.</span>
-                        <p class="details-merck" data-i18n="exp_merck_details">Ce stage m'a permis de connaître les différents débouchés pour ma poursuite d'études. Ma mère travaillant en tant que chef de projet informatique au sein de l'entreprise, j'ai consacré la plupart de ce stage dans son département afin de connaître les aspects de son métier, qui m'a réellement donné envie de poursuivre mes études supérieures dans ce domaine.</p>
+                        <strong data-en="February 8–12, 2021:">8-12 Février 2021 :</strong>
+                        <span data-en="Work-experience placement (final year of middle school) at Merck, a leading life-science laboratory.">Stage de 3ème réalisé chez Merck, laboratoire scientifique leader en sciences de la vie.</span>
+                        <p class="details-merck" data-en="This placement let me discover the different paths available for my further studies. As my mother works as an IT project manager at the company, I spent most of the placement in her department to learn about her job, which really made me want to continue my higher education in this field.">Ce stage m'a permis de connaître les différents débouchés pour ma poursuite d'études. Ma mère travaillant en tant que chef de projet informatique au sein de l'entreprise, j'ai consacré la plupart de ce stage dans son département afin de connaître les aspects de son métier, qui m'a réellement donné envie de poursuivre mes études supérieures dans ce domaine.</p>
                     </li>
                     <li class="exp-euro-info">
-                        <strong data-i18n="exp_euro_date">1er-31 juillet 2025 :</strong>
-                        <span data-i18n="exp_euro_title">Travail d'été chez Euro-Information logistique</span>
+                        <strong data-en="July 1–31, 2025:">1er-31 juillet 2025 :</strong>
+                        <span data-en="Summer job at Euro-Information Logistique">Travail d'été chez Euro-Information logistique</span>
+                        <p class="details-euro-info" data-en="Summer job at Euro-Information Logistique, a subsidiary of Crédit Mutuel. Updated the inventory of videoconferencing systems.">Job d'été réalisé chez Euro-Information Logistique (filière du Crédit Mutuel). Mise à jour du référentiel des systèmes de visioconférence.</p>
                     </li>
                 </ul>
 
-                <h3 data-i18n="form_h">Formation</h3>
+                <h3 data-en="Education">Formation</h3>
                 <ul class="timeline">
                     <li>
-                        <strong data-i18n="form_bac_date">2021 - 2024 :</strong>
-                        <span data-i18n="form_bac_title">Baccalauréat Technologique, Lycée Pasteur, Strasbourg (Mention Assez Bien)</span>
+                        <strong data-en="2021 - 2024:">2021 - 2024 :</strong>
+                        <span data-en="Technological Baccalaureate, Lycée Pasteur, Strasbourg (Honours – 'Assez Bien')">Baccalauréat Technologique, Lycée Pasteur, Strasbourg (Mention Assez Bien)</span>
                     </li>
                     <li class="form-IUT">
-                        <strong data-i18n="form_iut_date">2024 - 2025 :</strong>
-                        <span data-i18n="form_iut_title">Étudiant en Informatique, IUT d'Illkirch</span>
+                        <strong data-en="2024 - 2025:">2024 - 2025 :</strong>
+                        <span data-en="Computer Science student, IUT d'Illkirch">Étudiant en Informatique, IUT d'Illkirch</span>
                     </li>
                     <li class="form-bachelor">
-                        <strong data-i18n="form_ynov_date">Depuis septembre 2025 :</strong>
-                        <span data-i18n="form_ynov_title">Bachelor Informatique, Ynov Campus Strasbourg</span>
+                        <strong data-en="Since September 2025:">Depuis septembre 2025 :</strong>
+                        <span data-en="Computer Science Bachelor, Ynov Campus Strasbourg">Bachelor Informatique, Ynov Campus Strasbourg</span>
                     </li>
                 </ul>
             </div>
         </section>
     </main>
 
-    <footer data-i18n="footer">
-        © 2025 Théo Luthin — Tous droits réservés
+    <footer data-en="© 2026 Théo Luthin — All rights reserved">
+        © 2026 Théo Luthin — Tous droits réservés
     </footer>
     <script src="script.js"></script>
 </body>

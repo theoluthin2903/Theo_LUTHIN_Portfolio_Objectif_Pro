@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title_projects">Langages & Projets - Théo Luthin</title>
+    <title data-en="Languages & Projects - Théo Luthin">Langages & Projets - Théo Luthin</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,21 +13,21 @@
         <nav>
             <h1 class="logo">Théo Luthin</h1>
             <ul>
-                <li><a href="index.html" data-i18n="nav_cv">CV</a></li>
-                <li><a href="projets.html" class="active" data-i18n="nav_projects">Projets</a></li>
-                <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                <li><a href="index.html" data-en="Resume">CV</a></li>
+                <li><a href="projets.html" class="active" data-en="Projects">Projets</a></li>
+                <li><a href="contact.html" data-en="Contact">Contact</a></li>
             </ul>
-            <button id="lang-switcher" type="button">🌐 English</button>
+            <button id="lang-switcher" type="button"><img class="language-flag" src="images/flag-gb.svg" alt="" aria-hidden="true"> English</button>
             <button id="theme-switcher" type="button">☀️ Mode Clair</button>
         </nav>
     </header>
 
     <main class="container">
         <section class="skills-projects">
-            <h2 data-i18n="langs_h">Langages de programmation étudiés</h2>
+            <h2 data-en="Programming languages studied">Langages de programmation étudiés</h2>
 
             <ul class="skills-grid" id="skills-filter">
-                <li data-filter="all" class="active-filter" data-i18n="filter_all">TOUS</li>
+                <li data-filter="all" class="active-filter" data-en="ALL">TOUS</li>
                 <li data-filter="html">HTML</li>
                 <li data-filter="css">CSS</li>
                 <li data-filter="javascript">JavaScript</li>
@@ -37,9 +37,11 @@
                 <li data-filter="sql">SQL</li>
                 <li data-filter="c">C</li>
                 <li data-filter="csharp">C#</li>
+                <li data-filter="react">React</li>
+                <li data-filter="typescript">TypeScript</li>
             </ul>
 
-            <h2 data-i18n="projects_h">Projets réalisés</h2>
+            <h2 data-en="Completed projects">Projets réalisés</h2>
             <div id="no-project-message" style="display: none;"></div>
             <div class="carousel-wrapper">
                 <button class="carousel-control prev-btn" data-target="projects-carousel" type="button" aria-label="Précédent">◀</button>
@@ -47,19 +49,43 @@
                 <div class="carousel-container projects-carousel" id="projects-carousel">
 
                     <article class="project" data-tags="go,poo">
-                        <h3 data-i18n="proj_go_title">Jeu en Go</h3>
-                        <p data-i18n="proj_go_desc">RPG au tour par tour développé en Go avec gestion de personnages, inventaire et combats.</p>
-                        <p><strong data-i18n="proj_tech">Technologies :</strong> Go</p>
-                        <p><strong data-i18n="proj_link">Lien du git du projet :</strong> <a href="https://gitlab.com/education5890737/projet-red_fantasy_rpg" target="_blank" rel="noopener">https://gitlab.com/education5890737/projet-red_fantasy_rpg</a></p>
-                        <img src="images/go.png" alt="Capture d'écran du jeu en Go" data-i18n-alt="proj_go_alt" class="project-img">
+                        <h3 data-en="Go Game">Jeu en Go</h3>
+                        <p data-en="Turn-based RPG developed in Go with character management, inventory and combat.">RPG au tour par tour développé en Go avec gestion de personnages, inventaire et combats.</p>
+                        <p><strong data-en="Technologies:">Technologies :</strong> Go</p>
+                        <p><strong data-en="Project Git link:">Lien du git du projet :</strong> <a href="https://gitlab.com/education5890737/projet-red_fantasy_rpg" target="_blank" rel="noopener">https://gitlab.com/education5890737/projet-red_fantasy_rpg</a></p>
+                        <img src="images/go.png" alt="Capture d'écran du jeu en Go" data-en-alt="Screenshot of the Go game" class="project-img">
                     </article>
 
                     <article class="project" data-tags="go,html,css">
-                        <h3 data-i18n="proj_p4_title">Puissance 4 en Go-HTML-CSS</h3>
-                        <p data-i18n="proj_p4_desc">Implémentation web du jeu de Puissance 4.</p>
-                        <p><strong data-i18n="proj_tech">Technologies :</strong> Go, HTML, CSS</p>
-                        <p><strong data-i18n="proj_link">Lien du git du projet :</strong> <a href="https://gitlab.com/education5890737/power4-web" target="_blank" rel="noopener">https://gitlab.com/education5890737/power4-web</a></p>
-                        <img src="images/power4web.png" alt="Capture d'écran du puissance 4 en Go" data-i18n-alt="proj_p4_alt" class="project-img">
+                        <h3 data-en="Connect 4 in Go-HTML-CSS">Puissance 4 en Go-HTML-CSS</h3>
+                        <p data-en="Web implementation of the Connect 4 game.">Implémentation web du jeu de Puissance 4.</p>
+                        <p><strong data-en="Technologies:">Technologies :</strong> Go, HTML, CSS</p>
+                        <p><strong data-en="Project Git link:">Lien du git du projet :</strong> <a href="https://gitlab.com/education5890737/power4-web" target="_blank" rel="noopener">https://gitlab.com/education5890737/power4-web</a></p>
+                        <img src="images/power4web.png" alt="Capture d'écran du puissance 4 en Go" data-en-alt="Screenshot of the Connect 4 game in Go" class="project-img">
+                    </article>
+
+                    <article class="project" data-tags="csharp">
+                        <h3 data-en="FPS game in C#">Jeu FPS en C#</h3>
+                        <p data-en="Project of creation of an FPS game in C# with students in 3D and Audiovisual">Projet de création d'un jeu FPS en C# en compganie d'étudiants en 3D et Audiovisuel </p>
+                        <p><strong data-en="Technologies:">Technologies :</strong> C#</p>
+                        <p><strong data-en="Project Git link:">Lien du git du projet :</strong> <a href="https://gitlab.matthias-hervouet.fr/game/afterlight" target="_blank" rel="noopener">https://gitlab.matthias-hervouet.fr/game/afterlight</a></p>
+                        <img src="images/afterlight.png" alt="Capture d'écran du jeu FPS en C#" data-en-alt="Screenshot of the FPS game in C#" class="project-img">
+                    </article>
+
+                    <article class="project" data-tags="javascript, html, css, react, typescript">
+                        <h3 data-en="Movie Library">Bibliothèque de Films</h3>
+                        <p data-en="Web application for managing a movie library.">Application web pour gérer une bibliothèque de films.</p>
+                        <p><strong data-en="Technologies:">Technologies :</strong> JavaScript, HTML, CSS, React, TypeScript</p>
+                        <p><strong data-en="Project Git link:">Lien du git du projet :</strong> <a href="https://github.com/theoluthin2903/Theo_LUTHIN_Projet_React_TypeScript" target="_blank" rel="noopener">https://github.com/theoluthin2903/Theo_LUTHIN_Projet_React_TypeScript</a></p>
+                        <img src="images/cinescope.png" alt="Capture d'écran de la bibliothèque de films" data-en-alt="Screenshot of the movie library" class="project-img">
+                    </article>
+
+                    <article class="project" data-tags="python">
+                        <h3 data-en="Smart Fridge Management">Gestion de Frigo Intelligent</h3>
+                        <p data-en="Web application for managing a smart fridge and tracking nutritional intake.">Application web FastAPI pour gérer un frigo intelligent et réaliser un suivi nutritionnel.</p>
+                        <p><strong data-en="Technologies:">Technologies :</strong> Python</p>
+                        <p><strong data-en="Project Git link:">Lien du git du projet :</strong> <a href="https://github.com/theoluthin2903/Theo_L_Maxime_Projet_Smart_Fridge" target="_blank" rel="noopener">https://github.com/theoluthin2903/Theo_L_Maxime_Projet_Smart_Fridge</a></p>
+                        <img src="images/smartfridge.png" alt="Capture d'écran du frigo intelligent" data-en-alt="Screenshot of the smart fridge" class="project-img">
                     </article>
 
                 </div>
@@ -69,8 +95,8 @@
         </section>
     </main>
 
-    <footer data-i18n="footer">
-        © 2025 Théo Luthin — Tous droits réservés
+    <footer data-en="© 2026 Théo Luthin — All rights reserved">
+        © 2026 Théo Luthin — Tous droits réservés
     </footer>
     <script src="script.js"></script>
 </body>
