@@ -1,0 +1,1 @@
+# This static site uses Python's standard library and has no third-party dependencies.
