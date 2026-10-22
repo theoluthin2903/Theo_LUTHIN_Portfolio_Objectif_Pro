@@ -19,8 +19,8 @@ Portfolio personnel présentant mon parcours, mes compétences, mes projets et m
 
 ## Technologies
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript (ES6+)
 - Python (serveur HTTP de déploiement sur Scalingo uniquement ; le site n’a pas de logique applicative Python)
 
