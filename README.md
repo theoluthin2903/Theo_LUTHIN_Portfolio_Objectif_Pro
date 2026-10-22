@@ -50,7 +50,7 @@ Le `Procfile` démarre le serveur HTTP standard de Python sur le port fourni par
 web: python -m http.server $PORT --bind 0.0.0.0
 ```
 
-lien de l'app déployée sur scalingo : [https://theo-luthin-portfolio-objectif-pro.scalingo.io/](https://theo-luthin-portfolio-objectif-pro.scalingo.io/)
+lien de l'app déployée sur scalingo : [https://theo-luthin-objectif-pro-portfolio-app.osc-fr1.scalingo.io/](https://theo-luthin-objectif-pro-portfolio-app.osc-fr1.scalingo.io/)
 
 ## Structure du dépôt
 
